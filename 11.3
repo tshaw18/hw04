@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+void Promt_size(int *size) {
+	cout << "Enter size: ";
+	cin >> *size;
+}
+
+int *allocateArray(int size){
+	int *list = new int[size];
+	for (int i = 0; i < size; i++){
+		list[i] = 50;
+	}
+	return list;
+}
+
+void populate_numbers(int size){
+	int *list = new int[size];
+	for (int i = 0; i < size; i++) {
+		int input = 0;
+			cout << "Enter number: ";
+			cin >> input;
+			list[i] = input;
+		
+	}
+}
+
+int *doubleCapacity(const int *list, int size) {
+	int new_size = size * 2;
+	int *new_list = new int[new_size];
+		for (int i = 0; i < new_size; i++) {
+			new_list[i] = list[i];
+		}
+	//for (int *curr = list; curr < list + size)
+	
+
+	return new_list;
+}
+
+int main() {
+	int nums;
+
+	Promt_size(&nums);
+	
+	
+	int *list = new int[nums];
+	for (int i = 0; i < nums; i++){
+		list[i] = 50;
+	}
+	populate_numbers (nums);
+	doubleCapacity(list, nums);
+
+
+
+
+	delete list;
+}
