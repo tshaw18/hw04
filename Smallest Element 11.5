@@ -1,0 +1,52 @@
+// Trevor Shaw
+// Pete Tucker
+// CS2
+// Smallest Elemtent 11.5
+
+#include <iostream>
+using namespace std;
+
+void promt(int *size){
+	cout << "Enter size of array: ";
+	cin >> *size;
+}
+
+int *allocateArray(int size){
+	int *pArray = new int[size];
+	for (int i = 0; i < size; i++){
+		pArray[i] = 50;
+	}
+
+	return pArray;
+}
+
+void populate_numbers(int* array_, int size) {
+	for (int* curr = array_; curr < array_ + size; curr++) {
+		cout << "Enter number: ";
+		cin >> *curr;
+	}
+}
+
+void order_array(int *numbers, int size){
+	int smallest = numbers[0];
+	int location = 0;
+	for (int i = 1; i < size; i++) {
+		if (numbers[i] < numbers[i - 1]){
+			smallest = numbers[i];
+			location = i + 1;
+		}
+	}
+	cout << "The smallest element is: " << smallest << endl;
+	cout << "It's location in the array is number: " << location << endl;
+}
+
+
+int main() {
+	int num = 0;
+
+	promt(&num);
+	int *pArray = allocateArray (num);
+	populate_numbers(pArray, num);
+	order_array(pArray, num);
+
+}
